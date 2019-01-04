@@ -8,7 +8,9 @@
 export default {
   created() {
     this.interval = setInterval(() => {
-      this.$nuxt.$router.replace({ path: '/app/inmuebles' })
+      this.$nuxt.$router.replace({
+        path: process.env.appUrl.baseUrl
+      })
     }, 2000)
   }
 }

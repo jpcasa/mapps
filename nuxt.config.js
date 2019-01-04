@@ -53,7 +53,16 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
-
+  env: {
+    authUrl: {
+      baseUrl: '/auth',
+      loginUrl: 'login',
+      registerUrl: 'register'
+    },
+    appUrl: {
+      baseUrl: '/app/tablero'
+    }
+  },
   /*
   ** Build configuration
   */

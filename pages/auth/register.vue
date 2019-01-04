@@ -12,6 +12,7 @@ import RegisterForm from '~/components/Forms/RegisterForm.vue'
 
 export default {
   layout: 'auth',
+  middleware: 'anonymous',
   components: {
     RegisterForm
   },

@@ -18,7 +18,7 @@
       label="Usuario"
       sublabel="Ingresar Usuario"
       placeholder="Usuario"
-      validate="required|email"
+      validate="required"
       class="mb-6" />
 
     <!-- PASSWORD -->
@@ -90,7 +90,9 @@ export default {
           if (this.password == this.password_confirmation) {
             // FORM SUBMMITED
             console.log('passed')
-            this.$nuxt.$router.replace({ path: '/auth/process-login' })
+            this.$nuxt.$router.replace({
+              path: `${process.env.authUrl.baseUrl}/process-login`
+            })
           } else {
             this.addValidationError('Las contraseñas no coinciden.')
           }

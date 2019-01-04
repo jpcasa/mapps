@@ -12,6 +12,7 @@ import LoginForm from '~/components/Forms/LoginForm.vue'
 
 export default {
   layout: 'auth',
+  middleware: 'anonymous',
   components: {
     LoginForm
   },

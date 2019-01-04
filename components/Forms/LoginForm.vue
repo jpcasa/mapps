@@ -3,7 +3,7 @@
     action="/"
     method="post"
     class="login-form"
-    @submit="checkForm">
+    @submit="uploadForm">
 
     <!-- ALERTS -->
     <Alerts
@@ -71,14 +71,16 @@ export default {
     }
   },
   methods: {
-    checkForm(e) {
+    uploadForm(e) {
       e.preventDefault()
       if (this.username && this.password) {
         if (this.errors.items.length == 0) {
           //
           // HANDLE FORM SUBMISSION
           //
-          this.$nuxt.$router.replace({ path: '/auth/process-login' })
+          this.$nuxt.$router.replace({
+            path: `${process.env.authUrl.baseUrl}/process-login`
+          })
         } else {
           this.addValidationError('Revisa los campos!')
         }
