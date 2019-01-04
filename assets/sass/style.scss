@@ -1,0 +1,309 @@
+@import "helpers/crm_variables.scss";
+@import "helpers/mixins.scss";
+
+@tailwind preflight;
+@tailwind components;
+
+/*
+  Global Styles
+*/
+body {
+  font-family: $gotham-book;
+  @apply text-grey-dark;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-xxs {
+  font-size: 0.72rem;
+}
+
+.text-3xs {
+  font-size: 0.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-family: $gotham-medium;
+}
+
+.google {
+  background-color: $google;
+  &:hover {
+    background-color: $google_dark;
+  }
+}
+
+.linkedin {
+  background-color: $linkedin;
+  &:hover {
+    background-color: $linkedin_dark;
+  }
+}
+
+.facebook {
+  background-color: $facebook;
+  &:hover {
+    background-color: $facebook_dark;
+  }
+}
+
+/*
+  Text-Indent
+*/
+.text-indent-4 {
+  text-indent: 1rem;
+}
+.text-indent-6 {
+  text-indent: 1.5rem;
+}
+.text-indent-8 {
+  text-indent: 2rem;
+}
+.text-indent-10 {
+  text-indent: 2.5rem;
+}
+.text-indent-12 {
+  text-indent: 3rem;
+}
+.text-indent-16 {
+  text-indent: 4rem;
+}
+
+/*
+  Positions
+*/
+.top-xs {
+  top: 0.20rem;
+}
+.top-1 {
+  top: 0.25rem;
+}
+.top-2 {
+  top: 0.5rem;
+}
+.top-3 {
+  top: 0.75rem;
+}
+.top-4 {
+  top: 1rem;
+}
+.left-1 {
+  left: 0.25rem;
+}
+.left-2 {
+  left: 0.5rem;
+}
+.left-3 {
+  left: 0.75rem;
+}
+.left-4 {
+  left: 1rem;
+}
+.right-1 {
+  right: 0.25rem;
+}
+.right-2 {
+  right: 0.5rem;
+}
+.right-3 {
+  right: 0.75rem;
+}
+.right-4 {
+  right: 1rem;
+}
+.top-icon {
+  top: 2px;
+}
+.bottom-icon {
+  bottom: 2px;
+}
+/*
+  Z-INDEX
+*/
+.z-15 {
+  z-index: 15;
+}
+
+/*
+  TOOLTIPS
+*/
+.tooltip {
+  display: block !important;
+  z-index: 10000;
+  font-family: $gotham-book;
+  font-size: 13px;
+
+  .tooltip-inner {
+    background: #1c3d5a;
+    color: white;
+    border-radius: 16px;
+    padding: 9px 10px 8px;
+  }
+
+  .tooltip-arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    margin: 5px;
+    border-color: #1c3d5a;
+    z-index: 1;
+  }
+
+  &[x-placement^="top"] {
+    margin-bottom: 5px;
+
+    .tooltip-arrow {
+      border-width: 5px 5px 0 5px;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+      bottom: -5px;
+      left: calc(50% - 5px);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &[x-placement^="bottom"] {
+    margin-top: 5px;
+
+    .tooltip-arrow {
+      border-width: 0 5px 5px 5px;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-top-color: transparent !important;
+      top: -5px;
+      left: calc(50% - 5px);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &[x-placement^="right"] {
+    margin-left: 5px;
+
+    .tooltip-arrow {
+      border-width: 5px 5px 5px 0;
+      border-left-color: transparent !important;
+      border-top-color: transparent !important;
+      border-bottom-color: transparent !important;
+      left: -5px;
+      top: calc(50% - 5px);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &[x-placement^="left"] {
+    margin-right: 5px;
+
+    .tooltip-arrow {
+      border-width: 5px 0 5px 5px;
+      border-top-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+      right: -5px;
+      top: calc(50% - 5px);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &.popover {
+    $color: #f9f9f9;
+
+    .popover-inner {
+      background: $color;
+      color: black;
+      padding: 24px;
+      border-radius: 5px;
+      box-shadow: 0 5px 30px rgba(black, .1);
+    }
+
+    .popover-arrow {
+      border-color: $color;
+    }
+  }
+
+  &[aria-hidden='true'] {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .15s, visibility .15s;
+  }
+
+  &[aria-hidden='false'] {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .15s;
+  }
+}
+
+/*
+  INPUTS
+*/
+input {
+  &:focus {
+    outline: none;
+  }
+}
+
+/*
+  BUTTONS
+*/
+.btn {
+  @apply inline-block text-sm px-8 pt-2 pb-3 rounded-lg cursor-pointer;
+  font-family: $gotham-medium;
+  span {
+    @apply text-lg relative inline-block ml-1;
+    top: 2px;
+  }
+}
+
+.btn-blue {
+  @apply bg-blue text-white;
+  &:hover {
+    @apply bg-blue-dark;
+  }
+}
+
+/*
+  MEDIA QUERIES
+*/
+.desktop,
+.tablet {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-small {
+    display: none;
+  }
+  .tablet-flex {
+    display: flex;
+  }
+  .tablet-block {
+    display: block;
+  }
+  .tablet-inline-block {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1000px) {
+  .mobile {
+    display: none;
+  }
+  .desktop-flex {
+    display: flex;
+  }
+  .desktop-block {
+    display: block;
+  }
+  .desktop-inline-block {
+    display: inline-block;
+  }
+}

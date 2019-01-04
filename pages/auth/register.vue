@@ -1,6 +1,6 @@
 <template lang="html">
   <section class="page-login">
-    <LoginForm class="flex-auto" />
+    <RegisterForm class="flex-auto" />
     <p class="page-login-message">¿No tienes cuenta?
       <nuxt-link to="/auth/register">Registrate aquí</nuxt-link>
     </p>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import LoginForm from '~/components/Forms/LoginForm.vue'
+import RegisterForm from '~/components/Forms/RegisterForm.vue'
 
 export default {
   layout: 'auth',
   components: {
-    LoginForm
+    RegisterForm
   },
   data() {
     return {
