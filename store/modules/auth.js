@@ -1,6 +1,12 @@
 const state = () => {
   return {
-    user: null
+    user: {
+      username: 'hola@jpcasabianca.com',
+      first_name: 'Juan Pablo',
+      last_name: 'Casabianca',
+      email: 'hola@jpcasabianca.com',
+      avatar: '/1x/user.png'
+    }
   }
 }
 
@@ -19,9 +25,16 @@ const mutations = {
   }
 }
 
+const actions = {
+  set_user({ commit }, user) {
+    commit('SET_USER', user)
+  }
+}
+
 export default {
   namespaced: true,
   state,
   getters,
-  mutations
+  mutations,
+  actions
 }

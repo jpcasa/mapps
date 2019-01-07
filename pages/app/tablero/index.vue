@@ -1,12 +1,17 @@
 <template lang="html">
   <section>
-    <p>Tablero</p>
+    <h1>Tablero</h1>
   </section>
 </template>
 
 <script>
-export default {}
+import authMixin from '~/mixins/auth/authenticated'
+
+export default {
+  layout: 'app',
+  mixins: [authMixin]
+}
 </script>
 
-<style lang="css">
+<style lang="scss">
 </style>

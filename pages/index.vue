@@ -9,17 +9,12 @@
         class="inline-block p-2"
         to="/auth/register">Register</nuxt-link>
     </nav>
-    <div class="">
-      {{ isAuthenticated ? 'Si' : 'No' }}
-    </div>
   </section>
 </template>
 
 <script>
-import authenticatedMixin from '~/mixins/authenticated'
-
 export default {
-  mixins: [authenticatedMixin]
+  middleware: 'anonymous'
 }
 </script>
 

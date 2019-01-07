@@ -1,10 +1,12 @@
 <template lang="html">
   <section class="section-auth">
     <div class="section-auth-container">
-      <img
-        class="w-48 mb-8"
-        src="/1x/logo.png"
-        alt="Logo Mapps360">
+      <nuxt-link to="/">
+        <img
+          class="w-48 mb-8"
+          src="/1x/logo.png"
+          alt="Logo Mapps360">
+      </nuxt-link>
       <Title
         class="mb-4"
         title="Bienvenido,"

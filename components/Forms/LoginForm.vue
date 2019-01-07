@@ -15,10 +15,10 @@
       v-model="username"
       type="text"
       name="username"
-      label="Usuario"
-      sublabel="Ingresar Usuario"
-      placeholder="Usuario"
-      validate="required"
+      label="Email"
+      sublabel="Ingresar Email"
+      placeholder="Email"
+      validate="email|required"
       class="mb-6" />
 
     <!-- PASSWORD -->
@@ -55,7 +55,7 @@ import Alerts from '~/components/Alerts/Alerts'
 import TextInput from '~/components/Forms/Inputs/TextInput'
 import ButtonWithIcon from '~/components/Elements/ButtonWithIcon'
 
-import valErrorsMixin from '~/mixins/valErrors'
+import valErrorsMixin from '~/mixins/validation/valErrors'
 
 export default {
   components: {

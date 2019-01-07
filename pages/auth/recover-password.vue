@@ -1,20 +1,20 @@
 <template lang="html">
   <section class="page-login">
-    <LoginForm class="flex-auto" />
-    <p class="page-login-message">¿No tienes cuenta?
-      <nuxt-link to="/auth/register">Registrate aquí</nuxt-link>
+    <RecoverPasswordForm class="flex-auto" />
+    <p class="page-login-message">¿No tienes contraseña?
+      <nuxt-link to="/auth/login">Ingresa aquí</nuxt-link>
     </p>
   </section>
 </template>
 
 <script>
-import LoginForm from '~/components/Forms/LoginForm.vue'
+import RecoverPasswordForm from '~/components/Forms/RecoverPasswordForm.vue'
 
 export default {
   layout: 'auth',
   middleware: 'anonymous',
   components: {
-    LoginForm
+    RecoverPasswordForm
   }
 }
 </script>

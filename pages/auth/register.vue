@@ -1,8 +1,8 @@
 <template lang="html">
   <section class="page-login">
     <RegisterForm class="flex-auto" />
-    <p class="page-login-message">¿No tienes cuenta?
-      <nuxt-link to="/auth/register">Registrate aquí</nuxt-link>
+    <p class="page-login-message">¿Ya tienes cuenta?
+      <nuxt-link to="/auth/login">Ingresa aquí</nuxt-link>
     </p>
   </section>
 </template>
@@ -15,11 +15,6 @@ export default {
   middleware: 'anonymous',
   components: {
     RegisterForm
-  },
-  data() {
-    return {
-      saving: false
-    }
   }
 }
 </script>

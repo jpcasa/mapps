@@ -13,12 +13,12 @@
     <!-- USERNAME -->
     <TextInput
       v-model="username"
-      type="text"
+      type="email"
       name="username"
-      label="Usuario"
-      sublabel="Ingresar Usuario"
+      label="Email"
+      sublabel="Ingresar Email"
       placeholder="Usuario"
-      validate="required"
+      validate="email|required"
       class="mb-6" />
 
     <!-- PASSWORD -->
@@ -43,15 +43,6 @@
       validate="required|min:6"
       class="mb-2" />
 
-    <!-- RECOVERY LINK -->
-    <div class="block text-right">
-      <nuxt-link
-        to="/auth/recover-password"
-        class="recover-link">
-        Olvidé mi contraseña
-      </nuxt-link>
-    </div>
-
     <!-- SUBMIT BUTTON -->
     <ButtonWithIcon
       type="submit"
@@ -66,7 +57,7 @@ import Alerts from '~/components/Alerts/Alerts'
 import TextInput from '~/components/Forms/Inputs/TextInput'
 import ButtonWithIcon from '~/components/Elements/ButtonWithIcon'
 
-import valErrorsMixin from '~/mixins/valErrors'
+import valErrorsMixin from '~/mixins/validation/valErrors'
 
 export default {
   components: {
@@ -91,7 +82,7 @@ export default {
             // FORM SUBMMITED
             console.log('passed')
             this.$nuxt.$router.replace({
-              path: `${process.env.authUrl.baseUrl}/process-login`
+              path: `${process.env.authUrl.baseUrl}/login`
             })
           } else {
             this.addValidationError('Las contraseñas no coinciden.')
