@@ -2,10 +2,13 @@ const state = () => {
   return {
     user: {
       username: 'hola@jpcasabianca.com',
-      first_name: 'Juan Pablo',
+      first_name: 'JP',
       last_name: 'Casabianca',
       email: 'hola@jpcasabianca.com',
-      avatar: '/1x/user.png'
+      avatar: '/1x/user.png',
+      groups: {
+        name: 'agent'
+      }
     }
   }
 }
@@ -16,6 +19,18 @@ const getters = {
   },
   loggedUser(state) {
     return state.user
+  },
+  full_name(state) {
+    return `${state.user.first_name} ${state.user.last_name}`
+  },
+  user_role(state) {
+    switch (state.user.groups.name) {
+      case 'agent':
+        return 'Agente Mapps360'
+        break
+      default:
+        return 'Agente'
+    }
   }
 }
 

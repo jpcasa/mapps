@@ -1,6 +1,28 @@
 <template lang="html">
   <section>
     <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1>Tablero</h1>
+    <h1 style="color:red;">Tablero</h1>
   </section>
 </template>
 

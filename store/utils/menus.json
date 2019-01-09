@@ -1,0 +1,122 @@
+{
+  "main_menu": [
+    {
+      "id": 1,
+      "title": "Tablero",
+      "url": "/app/tablero",
+      "active": true,
+      "submenu": [
+        {
+          "id": 1,
+          "title": "Resumen",
+          "url": "/app/tablero",
+          "active": true
+        },
+        {
+          "id": 2,
+          "title": "Reportes",
+          "url": "/app/tablero/reportes",
+          "active": false
+        },
+        {
+          "id": 3,
+          "title": "noticias",
+          "url": "/app/tablero/noticias",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Inmuebles",
+      "url": "/app/inmuebles",
+      "active": false,
+      "submenu": [
+        {
+          "id": 1,
+          "title": "Todos",
+          "url": "/app/inmuebles",
+          "active": true
+        },
+        {
+          "id": 2,
+          "title": "Públicos",
+          "url": "/app/inmuebles/publicos",
+          "active": false
+        },
+        {
+          "id": 3,
+          "title": "Privados",
+          "url": "/app/inmuebles/privados",
+          "active": false
+        },
+        {
+          "id": 4,
+          "title": "Listas",
+          "url": "/app/inmuebles/listas",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Contactos",
+      "url": "/app/contactos",
+      "active": false,
+      "submenu": [
+        {
+          "id": 1,
+          "title": "Contactos",
+          "url": "/app/contactos",
+          "active": true
+        },
+        {
+          "id": 2,
+          "title": "Deals",
+          "url": "/app/contactos/deals",
+          "active": false
+        },
+        {
+          "id": 3,
+          "title": "Organizaciones",
+          "url": "/app/contactos/organizaciones",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Archivos",
+      "url": "/app/archivos",
+      "active": false,
+      "submenu": [
+        {
+          "id": 1,
+          "title": "Todos",
+          "url": "/app/archivos",
+          "active": true
+        },
+        {
+          "id": 2,
+          "title": "Compartidos",
+          "url": "/app/archivos/compartidos",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Email",
+      "url": "/app/email",
+      "active": false,
+      "submenu": [
+        {
+          "id": 1,
+          "title": "Email",
+          "url": "/app/email",
+          "active": true
+        }
+      ]
+    }
+  ]
+}

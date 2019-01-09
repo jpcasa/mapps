@@ -68,3 +68,36 @@
   -o-transition: $args;
   transition: $args;
 }
+
+/**
+ * Media Queries
+*/
+$mq_sm_endpoint: 576px;
+$mq_md_endpoint: 768px;
+$mq_lg_endpoint: 992px;
+$mq_xl_endpoint: 1200px;
+
+@mixin mq_sm {
+    @media (min-width: $mq_sm_endpoint) {
+        @content;
+    }
+}
+@mixin mq_md {
+    @media (min-width: $mq_md_endpoint) {
+        @content;
+    }
+}
+@mixin mq_lg {
+    @media (min-width: $mq_lg_endpoint) {
+        @content;
+    }
+}
+@mixin mq_xl {
+    @media (min-width: $mq_xl_endpoint) {
+        @content;
+    }
+}
+@include mq_sm {}
+@include mq_md {}
+@include mq_lg {}
+@include mq_xl {}
