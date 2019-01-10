@@ -4,30 +4,35 @@
 
       <!-- MOBILE ITEMS -->
       <div class="top-bar-left">
-        <i class="icon-menu" />
-        <i class="icon-star" />
+        <i
+          class="icon-menu"
+          @click="openSidebar()" />
+        <nuxt-link
+          to="/app/properties/favorites"
+          class="icon-star" />
       </div>
+
       <div class="top-bar-center">
-        <nuxt-link to="/app/perfil">
+        <nuxt-link to="/app/tablero">
           <img
             src="/1x/logo-white.png"
             alt="Logo Mapps360 Blanco">
         </nuxt-link>
       </div>
+
       <div class="top-bar-right">
         <i class="icon-bell" />
         <span class="user-img">
-          <nuxt-link to="/app/perfil">
-            <img
-              :src="'/1x/user.png'"
-              alt="Username">
-          </nuxt-link>
+          <img
+            :src="'/1x/user.png'"
+            alt="Username">
         </span>
+        <Dropdown />
       </div>
 
       <!-- DESKTOP -->
       <div class="top-bar-left-desktop">
-        <nuxt-link to="/app/perfil">
+        <nuxt-link to="/app/tablero">
           <img
             src="/1x/logo-white.png"
             alt="Logo Mapps360 Blanco">
@@ -39,7 +44,8 @@
           <nuxt-link
             v-for="(item, i) in main_menu"
             :key="i"
-            :to="item.url">
+            :to="item.url"
+            @click.native="activate_item(i)">
             {{ item.title }}
           </nuxt-link>
         </nav>
@@ -49,12 +55,12 @@
         <nav class="icons-menu">
           <nuxt-link
             class="icons-menu-item"
-            to="/">
+            to="/app/chat">
             <span class="icon-message-circle" />
           </nuxt-link>
           <nuxt-link
             class="icons-menu-item"
-            to="/">
+            to="/app/datos">
             <span class="icon-pie-chart" />
           </nuxt-link>
           <p class="icons-menu-item">
@@ -63,11 +69,9 @@
         </nav>
         <div class="profile-section">
           <span class="user-img">
-            <nuxt-link to="/app/perfil">
-              <img
-                :src="'/1x/user.png'"
-                alt="Username">
-            </nuxt-link>
+            <img
+              :src="'/1x/user.png'"
+              alt="Username">
           </span>
           <div class="info">
             <nuxt-link
@@ -88,16 +92,27 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+
+import Dropdown from '~/components/Elements/Dropdown'
 
 export default {
+  components: {
+    Dropdown
+  },
   computed: {
-    ...mapState({
-      main_menu: state => state.menus.main_menu
-    }),
     ...mapGetters({
       full_name: 'auth/full_name',
-      user_role: 'auth/user_role'
+      user_role: 'auth/user_role',
+      main_menu: 'menus/mainMenu'
+    })
+  },
+  methods: {
+    openSidebar() {
+      this.$emit('open-sidebar')
+    },
+    ...mapActions({
+      activate_item: 'menus/activate_item'
     })
   }
 }
@@ -108,22 +123,18 @@ export default {
 @import '~/assets/sass/helpers/crm_variables.scss';
 
 .top-bar {
-  @apply flex bg-blue-darker px-4 items-center;
-
-  // Shared
-  .user-img {
-    @apply w-6 h-6 inline-block rounded-full overflow-hidden border border-white ml-1;
-    &:hover {
-      @apply border-blue;
-    }
+  @apply flex bg-blue-darker px-4 py-2 items-center;
+  @include mq_lg {
+    @apply py-0;
   }
 
   // MOBILE
   .top-bar-left,
   .top-bar-right {
     @apply flex-none text-white cursor-pointer;
-    i {
-      @apply inline-block mr-1;
+    i,
+    a {
+      @apply inline-block mr-1 text-white;
       &:hover {
         @apply text-blue;
       }
@@ -137,7 +148,31 @@ export default {
     }
   }
   .top-bar-right {
-    @apply flex items-center;
+    @apply flex items-center relative;
+    .dropdown {
+      top: 2.5rem;
+      right: 0;
+      p {
+        i {
+          @apply text-white;
+          &:hover {
+            @apply text-blue;
+          }
+        }
+      }
+      a {
+        @apply m-0;
+        &:hover {
+          i,
+          span {
+            @apply text-grey-darker;
+          }
+        }
+        i {
+          @apply text-grey-dark;
+        }
+      }
+    }
   }
   .top-bar-left,
   .top-bar-center,
@@ -149,13 +184,14 @@ export default {
 
   // DESKTOP
   .top-bar-left-desktop {
-    @apply flex-auto;
+    @apply flex-auto hidden;
     img {
       @apply w-40 relative flex;
     }
   }
+
   .top-bar-center-desktop {
-    @apply flex-none pr-4;
+    @apply flex-none pr-4 hidden;
     nav {
       a {
         @apply text-sm text-grey-dark inline-block mx-2;
@@ -168,8 +204,12 @@ export default {
       }
     }
   }
+
   .top-bar-right-desktop {
-    @apply flex flex-none;
+    @apply flex-none hidden;
+    @include mq_lg {
+      @apply flex;
+    }
     .icons-menu {
       @apply flex items-center;
       a,
@@ -210,6 +250,27 @@ export default {
             @apply text-blue;
           }
         }
+      }
+    }
+  }
+
+  .top-bar-left-desktop,
+  .top-bar-center-desktop {
+    @include mq_lg {
+      @apply block;
+    }
+  }
+
+  // Shared
+  .user-img {
+    @apply w-6 h-6 inline-block rounded-full overflow-hidden border border-white ml-1;
+    &:hover {
+      @apply border-blue;
+    }
+    a {
+      @apply p-0 m-0;
+      img {
+        @apply w-full h-full;
       }
     }
   }

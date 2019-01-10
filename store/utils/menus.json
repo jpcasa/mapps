@@ -4,7 +4,9 @@
       "id": 1,
       "title": "Tablero",
       "url": "/app/tablero",
+      "icon": "icon-activity",
       "active": true,
+      "locations": ["main-menu", "sidebar"],
       "submenu": [
         {
           "id": 1,
@@ -20,7 +22,7 @@
         },
         {
           "id": 3,
-          "title": "noticias",
+          "title": "Noticias",
           "url": "/app/tablero/noticias",
           "active": false
         }
@@ -30,7 +32,9 @@
       "id": 2,
       "title": "Inmuebles",
       "url": "/app/inmuebles",
+      "icon": "icon-home",
       "active": false,
+      "locations": ["main-menu"],
       "submenu": [
         {
           "id": 1,
@@ -62,7 +66,9 @@
       "id": 3,
       "title": "Contactos",
       "url": "/app/contactos",
+      "icon": "icon-users",
       "active": false,
+      "locations": ["main-menu"],
       "submenu": [
         {
           "id": 1,
@@ -88,7 +94,9 @@
       "id": 4,
       "title": "Archivos",
       "url": "/app/archivos",
+      "icon": "icon-folder",
       "active": false,
+      "locations": ["main-menu"],
       "submenu": [
         {
           "id": 1,
@@ -108,7 +116,9 @@
       "id": 5,
       "title": "Email",
       "url": "/app/email",
+      "icon": "icon-mail",
       "active": false,
+      "locations": ["main-menu"],
       "submenu": [
         {
           "id": 1,
@@ -117,6 +127,95 @@
           "active": true
         }
       ]
+    },
+    {
+      "id": 6,
+      "title": "Chat",
+      "url": "/app/chat",
+      "icon": "icon-message-circle",
+      "active": false,
+      "locations": ["sidebar"],
+      "submenu": []
+    },
+    {
+      "id": 7,
+      "title": "Perfil",
+      "url": "/app/perfil",
+      "icon": "icon-user",
+      "active": false,
+      "locations": ["sidebar"],
+      "submenu": []
+    },
+    {
+      "id": 8,
+      "title": "Datos Mercado",
+      "url": "/app/datos",
+      "icon": "icon-pie-chart",
+      "active": false,
+      "locations": ["sidebar"],
+      "submenu": []
+    },
+    {
+      "id": 9,
+      "title": "Pagos",
+      "url": "/app/perfil/pagos",
+      "icon": "icon-credit-card",
+      "active": false,
+      "locations": ["sidebar"],
+      "submenu": []
+    },
+    {
+      "id": 10,
+      "title": "Configuración",
+      "url": "/app/configuracion",
+      "icon": "icon-settings",
+      "active": false,
+      "locations": ["sidebar"],
+      "submenu": []
+    }
+  ],
+  "sidebar_menu": [
+    {
+      "id": 1,
+      "title": "Tablero",
+      "url": "/app/tablero",
+      "icon": "icon-home",
+      "active": true
+    },
+    {
+      "id": 2,
+      "title": "Chat",
+      "url": "/app/chat",
+      "icon": "icon-message-circle",
+      "active": false
+    },
+    {
+      "id": 3,
+      "title": "Perfil",
+      "url": "/app/perfil",
+      "icon": "icon-user",
+      "active": false
+    },
+    {
+      "id": 4,
+      "title": "Datos Mercado",
+      "url": "/app/datos",
+      "icon": "icon-pie-chart",
+      "active": false
+    },
+    {
+      "id": 5,
+      "title": "Pagos",
+      "url": "/app/perfil/pagos",
+      "icon": "icon-credit-card",
+      "active": false
+    },
+    {
+      "id": 6,
+      "title": "Configuración",
+      "url": "/app/configuracion",
+      "icon": "icon-settings",
+      "active": false
     }
   ]
 }

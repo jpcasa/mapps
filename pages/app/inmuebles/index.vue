@@ -5,8 +5,10 @@
 </template>
 
 <script>
-export default {}
+export default {
+  layout: 'app'
+}
 </script>
 
-<style lang="css">
+<style lang="scss">
 </style>

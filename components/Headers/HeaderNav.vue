@@ -1,18 +1,26 @@
 <template lang="html">
   <nav class="header-nav">
     <div class="header-nav-container">
-      <nuxt-link to="/app/tablero">Resumen</nuxt-link>
-      <nuxt-link to="/app/tablero/reportes">Reportes</nuxt-link>
-      <nuxt-link to="/app/tablero/noticias">Noticias</nuxt-link>
+      <nuxt-link
+        v-for="(item, i) in submenu"
+        :key="i"
+        :to="item.url"
+        :class="item.active ? 'active' : ''">
+        {{ item.title }}
+      </nuxt-link>
     </div>
     <div class="header-nav-container-desktop">
       <div class="search">
         <SearchProperties color="white" />
       </div>
       <nav>
-        <nuxt-link to="/app/tablero">Resumen</nuxt-link>
-        <nuxt-link to="/app/tablero/reportes">Reportes</nuxt-link>
-        <nuxt-link to="/app/tablero/noticias">Noticias</nuxt-link>
+        <nuxt-link
+          v-for="(item, i) in submenu"
+          :key="i"
+          :to="item.url"
+          :class="item.active ? 'active' : ''">
+          {{ item.title }}
+        </nuxt-link>
       </nav>
       <div class="add">
         <button class="btn btn-blue">Agregar</button>
@@ -22,11 +30,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import SearchProperties from '~/components/Forms/SearchProperties'
 
 export default {
   components: {
     SearchProperties
+  },
+  computed: {
+    ...mapGetters({
+      submenu: 'menus/submenu'
+    })
   }
 }
 </script>
@@ -80,6 +95,9 @@ export default {
         &:hover {
           @apply border-blue text-blue-darker;
         }
+      }
+      a.nuxt-link-exact-active {
+        @apply border-blue text-blue-darker;
       }
     }
   }

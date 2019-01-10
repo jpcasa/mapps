@@ -1,30 +1,32 @@
 <template lang="html">
   <nav class="mobile-nav">
-    <nuxt-link to="/app/tablero">
-      <i class="icon-home" />
-      <span>Tablero</span>
-    </nuxt-link>
-    <nuxt-link to="/app/inmuebles">
-      <i class="icon-home" />
-      <span>Inmuebles</span>
-    </nuxt-link>
-    <nuxt-link to="/app/contactos">
-      <i class="icon-home" />
-      <span>Contactos</span>
-    </nuxt-link>
-    <nuxt-link to="/app/archivos">
-      <i class="icon-home" />
-      <span>Archivos</span>
-    </nuxt-link>
-    <nuxt-link to="/app/emails">
-      <i class="icon-home" />
-      <span>Emails</span>
+    <nuxt-link
+      v-for="(item, i) in main_menu"
+      :key="i"
+      :to="item.url"
+      :class="item.active ? 'active' : ''"
+      @click.native="activate_item(i)">
+      <i :class="item.icon" />
+      <span>{{ item.title }}</span>
     </nuxt-link>
   </nav>
 </template>
 
 <script>
-export default {}
+import { mapState, mapGetters, mapActions } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters({
+      main_menu: 'menus/mainMenu'
+    })
+  },
+  methods: {
+    ...mapActions({
+      activate_item: 'menus/activate_item'
+    })
+  }
+}
 </script>
 
 <style lang="scss">
@@ -52,6 +54,13 @@ export default {}
       font-family: $gotham-book;
       font-weight: normal;
       font-size: 0.7rem;
+    }
+  }
+  a.active {
+    @apply bg-blue;
+    span,
+    i {
+      @apply text-white;
     }
   }
 }
