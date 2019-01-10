@@ -22,12 +22,20 @@
 
       <div class="top-bar-right">
         <i class="icon-bell" />
-        <span class="user-img">
+        <span
+          class="user-img"
+          @click="p_dd = true">
           <img
             :src="'/1x/user.png'"
             alt="Username">
         </span>
-        <Dropdown />
+        <transition name="fade">
+          <Dropdown
+            v-if="p_dd"
+            :title="profile_dropdown.title"
+            :items="profile_dropdown.items"
+            @close-dropdown="p_dd = false" />
+        </transition>
       </div>
 
       <!-- DESKTOP -->
@@ -63,11 +71,20 @@
             to="/app/datos">
             <span class="icon-pie-chart" />
           </nuxt-link>
-          <p class="icons-menu-item">
+          <p
+            class="icons-menu-item"
+            @click="p_dd_desktop = true">
             <span class="icon-bell" />
           </p>
         </nav>
         <div class="profile-section">
+          <transition name="fade">
+            <Dropdown
+              v-if="p_dd_desktop"
+              :title="profile_dropdown.title"
+              :items="profile_dropdown.items"
+              @close-dropdown="p_dd_desktop = false" />
+          </transition>
           <span class="user-img">
             <img
               :src="'/1x/user.png'"
@@ -82,7 +99,9 @@
             <p class="role">{{ user_role }}</p>
           </div>
           <div class="more-info">
-            <span class="icon-more-horizontal" />
+            <span
+              class="icon-more-horizontal"
+              @click="p_dd_desktop = true" />
           </div>
         </div>
       </div>
@@ -92,7 +111,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 import Dropdown from '~/components/Elements/Dropdown'
 
@@ -100,7 +119,16 @@ export default {
   components: {
     Dropdown
   },
+  data() {
+    return {
+      p_dd: false,
+      p_dd_desktop: false
+    }
+  },
   computed: {
+    ...mapState({
+      profile_dropdown: state => state.menus.profile_dropdown
+    }),
     ...mapGetters({
       full_name: 'auth/full_name',
       user_role: 'auth/user_role',
@@ -121,6 +149,30 @@ export default {
 <style lang="scss">
 @import '~/assets/sass/helpers/mixins.scss';
 @import '~/assets/sass/helpers/crm_variables.scss';
+
+%dropdown_top_bar {
+  right: 0;
+  p {
+    i {
+      @apply text-white;
+      &:hover {
+        @apply text-blue;
+      }
+    }
+  }
+  a {
+    @apply m-0;
+    &:hover {
+      i,
+      span {
+        @apply text-grey-darker;
+      }
+    }
+    i {
+      @apply text-grey-dark;
+    }
+  }
+}
 
 .top-bar {
   @apply flex bg-blue-darker px-4 py-2 items-center;
@@ -149,28 +201,12 @@ export default {
   }
   .top-bar-right {
     @apply flex items-center relative;
+    @extend %dropdown_top_bar;
     .dropdown {
       top: 2.5rem;
       right: 0;
-      p {
-        i {
-          @apply text-white;
-          &:hover {
-            @apply text-blue;
-          }
-        }
-      }
       a {
         @apply m-0;
-        &:hover {
-          i,
-          span {
-            @apply text-grey-darker;
-          }
-        }
-        i {
-          @apply text-grey-dark;
-        }
       }
     }
   }
@@ -211,7 +247,7 @@ export default {
       @apply flex;
     }
     .icons-menu {
-      @apply flex items-center;
+      @apply flex items-center relative;
       a,
       p {
         @apply inline-block text-white py-3 border-l border-blue-darkest px-3 text-lg cursor-pointer;
@@ -224,7 +260,12 @@ export default {
       }
     }
     .profile-section {
-      @apply flex ml-4 items-center;
+      @apply flex ml-4 items-center relative;
+      @extend %dropdown_top_bar;
+      .dropdown {
+        top: 3rem;
+        right: 0rem;
+      }
       .info {
         @apply mx-2;
         .username,

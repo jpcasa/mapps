@@ -174,48 +174,31 @@
       "submenu": []
     }
   ],
-  "sidebar_menu": [
-    {
-      "id": 1,
-      "title": "Tablero",
-      "url": "/app/tablero",
-      "icon": "icon-home",
-      "active": true
-    },
-    {
-      "id": 2,
-      "title": "Chat",
-      "url": "/app/chat",
-      "icon": "icon-message-circle",
-      "active": false
-    },
-    {
-      "id": 3,
+  "dropdowns": {
+    "profile": {
       "title": "Perfil",
-      "url": "/app/perfil",
-      "icon": "icon-user",
-      "active": false
-    },
-    {
-      "id": 4,
-      "title": "Datos Mercado",
-      "url": "/app/datos",
-      "icon": "icon-pie-chart",
-      "active": false
-    },
-    {
-      "id": 5,
-      "title": "Pagos",
-      "url": "/app/perfil/pagos",
-      "icon": "icon-credit-card",
-      "active": false
-    },
-    {
-      "id": 6,
-      "title": "Configuración",
-      "url": "/app/configuracion",
-      "icon": "icon-settings",
-      "active": false
+      "items": [
+        {
+          "title": "Mi Perfil",
+          "url": "/app/perfil",
+          "icon": "icon-user"
+        },
+        {
+          "title": "Pagos",
+          "url": "/app/perfil/pagos",
+          "icon": "icon-credit-card"
+        },
+        {
+          "title": "Configuración",
+          "url": "/app/perfil/configuracion",
+          "icon": "icon-settings"
+        },
+        {
+          "title": "Cerrar Sesión",
+          "url": "/auth/logout",
+          "icon": "icon-log-out"
+        }
+      ]
     }
-  ]
+  }
 }

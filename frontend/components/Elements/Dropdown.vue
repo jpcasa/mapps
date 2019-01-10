@@ -1,26 +1,43 @@
 <template lang="html">
   <div class="dropdown">
     <p>
-      Perfil
-      <i class="icon-x-circle" />
+      {{ title }}
+      <i
+        class="icon-x-circle"
+        @click="close()" />
     </p>
-    <nuxt-link to="/">
-      <i class="icon-home" />
-      <span>Algo</span>
-    </nuxt-link>
-    <nuxt-link to="/">
-      <i class="icon-home" />
-      <span>Algo</span>
-    </nuxt-link>
-    <nuxt-link to="/">
-      <i class="icon-home" />
-      <span>Algo</span>
+    <nuxt-link
+      v-for="(item, i) in items"
+      :key="i"
+      :to="item.url">
+      <i :class="item.icon" />
+      <span>{{ item.title }}</span>
     </nuxt-link>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    title: {
+      type: String,
+      default: () => {
+        return ''
+      }
+    },
+    items: {
+      type: String,
+      default: () => {
+        return ''
+      }
+    }
+  },
+  methods: {
+    close() {
+      this.$emit('close-dropdown')
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -28,7 +45,7 @@ export default {}
 @import '~/assets/sass/helpers/crm_variables.scss';
 
 .dropdown {
-  @apply absolute bg-white z-30 flex flex-col w-32 rounded-lg shadow-md;
+  @apply absolute bg-white z-30 flex flex-col w-48 rounded-lg shadow-md;
   p {
     @apply text-white text-center text-sm py-2 border-b bg-blue-darker rounded-t-lg cursor-default relative;
     font-family: $gotham-medium;

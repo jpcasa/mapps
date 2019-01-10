@@ -21,16 +21,22 @@ const getters = {
     return state.user
   },
   full_name(state) {
-    return `${state.user.first_name} ${state.user.last_name}`
+    if (state.user) {
+      return `${state.user.first_name} ${state.user.last_name}`
+    }
+    return ''
   },
   user_role(state) {
-    switch (state.user.groups.name) {
-      case 'agent':
-        return 'Agente Mapps360'
-        break
-      default:
-        return 'Agente'
+    if (state.user) {
+      switch (state.user.groups.name) {
+        case 'agent':
+          return 'Agente Mapps360'
+          break
+        default:
+          return 'Agente'
+      }
     }
+    return ''
   }
 }
 

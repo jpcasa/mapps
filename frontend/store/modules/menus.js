@@ -4,7 +4,7 @@ const state = () => {
   return {
     app_entry_url: ['app', 'tablero'],
     main_menu: menuData.main_menu,
-    sidebar_menu: menuData.sidebar_menu
+    profile_dropdown: menuData.dropdowns.profile
   }
 }
 

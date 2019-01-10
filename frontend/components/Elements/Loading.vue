@@ -5,14 +5,23 @@
         <img
           src="/gif/logo.gif"
           alt="Mapps360 Logo Gif">
-        <span>Mejorando tu vida...</span>
+        <span>{{ msg }}</span>
       </p>
     </div>
   </section>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    msg: {
+      type: String,
+      default: () => {
+        return 'Mejorando tu vida...'
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss">

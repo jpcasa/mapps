@@ -126,31 +126,4 @@ export default {
 #menu-sidebar {
   @apply fixed h-screen w-screen z-20 pin-t pin-l;
 }
-
-.slide-enter-active {
-  animation: slide-in 0.4s;
-}
-
-.slide-leave-active {
-  animation: slide-in 0.4s reverse;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.4s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
-@keyframes slide-in {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 </style>

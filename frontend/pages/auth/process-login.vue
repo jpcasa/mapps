@@ -8,13 +8,16 @@
 import { mapActions } from 'vuex'
 
 export default {
-  created() {
+  mounted() {
     this.set_user({
       username: 'hola@jpcasabianca.com',
       first_name: 'Juan Pablo',
       last_name: 'Casabianca',
       email: 'hola@jpcasabianca.com',
-      avatar: '/1x/user.png'
+      avatar: '/1x/user.png',
+      groups: {
+        name: 'agent'
+      }
     })
     this.interval = setInterval(() => {
       this.$nuxt.$router.replace({
